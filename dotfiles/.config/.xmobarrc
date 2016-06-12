@@ -1,0 +1,12 @@
+Config { font = "xft:Ubuntu-6.5"
+       , bgColor = "#302F2F"
+       , fgColor = "#FB5E14"
+       , position = TopW L 31
+       , lowerOnStart = True
+       , commands = [  Run Com "skb" ["-1"] "kb" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{<fc=#cd5c5c></fc>  "
+       }

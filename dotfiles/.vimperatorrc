@@ -1,0 +1,100 @@
+"Comportement de la barre (l = awesome bar, et s = search key)
+set complete=ls
+set wildoptions=auto
+
+"Pour « [[ » et « ]] » permet de les faire fonctionner en Français
+"Ajout de précédent/suivant
+
+set nextpattern=\bnext|suivant\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\bmore\b
+set previouspattern=\bprev|previous|précédent\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+
+"Définie quelles commandes sont ouvertes dans un nouvel onglet
+set newtab=all
+setglobal toolbars=nonavigation
+"set showtabline=always
+set editor="urxvt -e vim"
+
+" Workaround for umatrix
+style -name ublick * #nav-bar * { visibility: visible; }
+
+" [HJKL] -> {CTSR}
+" ————————————————
+" {cr} = « gauche / droite »
+noremap  t h
+noremap  n l
+" {ts} = « haut / bas »
+noremap  r j
+noremap  s k
+" {CR} = « haut / bas de l'écran »
+noremap  C H
+noremap  R L
+
+"T et S pour descendre/monter d'une demi page
+noremap  R <C-d>
+noremap  S <C-u>
+
+
+" {HJKL} <- [CTSR]
+" ————————————————
+" j ouverture dans nouvel onglet
+noremap j t
+noremap  J T
+"utilité ?
+noremap  l c
+noremap  L C
+" h = reload
+noremap  h r
+noremap  H R
+" C-k = gh (go home)
+noremap  k s
+noremap  K S
+
+" Désambiguation de {g}
+" —————————————————————
+" ligne précédante/suivante (à l'intérieur d'une phrase)
+noremap  gs gk
+noremap  gt gj
+" onglet précédant/suivant
+noremap  gé gT
+noremap  gp gt
+"Le mode visuel passe en I et i/e servent à passer à l'onglet suivant/précédent
+noremap  I v
+noremap  v gT
+noremap  l gt
+
+" premier/dernier ongegeglet
+"noremap  gi g^
+"noremap  ge g0
+
+
+noremap  <BS> <C-u>
+noremap  <Space> <C-d>
+noremap  <Return> zz
+
+"Go absolute up and down of page
+noremap  M-> gg
+noremap  M-< GG
+
+
+" Chiffres en accès direct 
+" ————————————
+"cmap 0 "
+"cmap 1 <
+"cmap 2 >
+"cmap 3 (
+"cmap 4 )
+"cmap 5 [
+"cmap 6 ]
+"cmap 7 /
+"cmap 8 * 
+"cmap 9 =
+"cmap " 0
+"cmap < 1
+"cmap > 2
+"cmap ( 3
+"cmap ) 4
+"cmap [ 5
+"cmap ] 6
+"cmap / 7
+"cmap * 8
+"cmap = 9

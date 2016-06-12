@@ -1,0 +1,71 @@
+"Comportement de la barre (l = awesome bar, et s = search key)
+set complete=ls
+"set wildoptions=auto
+
+"Pour « [[ » et « ]] » permet de les faire fonctionner en Français
+"Ajout de précédent/suivant
+
+set nextpattern=\bnext|suivant\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\bmore\b
+set previouspattern=\bprev|previous|précédent\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+
+"Définie quelles commandes sont ouvertes dans un nouvel onglet
+set newtab=all
+set showtabline=always
+
+" [HJKL] -> {CTSR}
+" ————————————————
+" {cr} = « gauche / droite »
+map -builtin t h
+map -builtin n l
+" {ts} = « haut / bas »
+map -builtin r j
+map -builtin s k
+" {CR} = « haut / bas de l'écran »
+map -builtin C H
+map -builtin R L
+
+"T et S pour descendre/monter d'une demi page
+map -builtin R <C-d>
+map -builtin S <C-u>
+
+
+" {HJKL} <- [CTSR]
+" ————————————————
+" j ouverture dans nouvel onglet
+map -builtin j t
+map -builtin J T
+"utilité ?
+map -builtin l c
+map -builtin L C
+" h = reload
+map -builtin h r
+map -builtin H R
+" C-k = gh (go home)
+map -builtin k s
+map -builtin K S
+
+" Désambiguation de {g}
+" —————————————————————
+" ligne précédante/suivante (à l'intérieur d'une phrase)
+map -builtin gs gk
+map -builtin gt gj
+" onglet précédant/suivant
+map -builtin gé gT
+map -builtin gp gt
+"Le mode visuel passe en I et i/e servent à passer à l'onglet suivant/précédent
+map -builtin I v
+map -builtin v gT
+map -builtin l gt
+
+" premier/dernier ongegeglet
+"map -builtin gi g^
+"map -builtin ge g0
+
+
+map -builtin <BS> <C-u>
+map -builtin <Space> <C-d>
+map -builtin <Return> zz
+
+"Go absolute up and down of page
+map -builtin M-> gg
+map -builtin M-< GG
