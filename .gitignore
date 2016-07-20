@@ -1,0 +1,3 @@
+dotfiles/.directory
+dotfiles/.config/nvim/bundle/
+!dotfiles/.config/nvim/bundle/*.py

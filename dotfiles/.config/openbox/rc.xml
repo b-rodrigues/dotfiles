@@ -367,6 +367,15 @@
         <command>dolphin</command>
       </action>
     </keybind>
+    <keybind key="Print">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Spectacle</name>
+        </startupnotify>
+        <command>spectacle</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>

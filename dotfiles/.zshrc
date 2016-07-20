@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/cbrunos/.oh-my-zsh
+export ZSH=/home/bro/.oh-my-zsh
 
 unset PYTHONPATH
 
@@ -55,11 +55,11 @@ bindkey "^[[B" history-search-forward
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=git
+plugins=(git,zsh-autosuggestions)
 
 # User configuration
 
-export PATH="/home/cbrunos/miniconda3/bin:/home/cbrunos/.linuxbrew/bin:/home/cbrunos/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/home/cbrunos/.local/bin:/home/cbrunos/Documents/Matlab/bin/"
+export PATH="/home/bro/miniconda3/bin:/home/bro/.linuxbrew/bin:/home/bro/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/home/bro/.local/bin:/home/bro/Documents/Matlab/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -113,14 +113,14 @@ alias xbox2player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 3 --si
 alias meteostras="curl wttr.in/strasbourg"
 
 # Setup zsh-autosuggestions
-source /home/cbrunos/.zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
-
-zle -N zle-line-init
+#source /home/bro/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#
+## Enable autosuggestions automatically
+#zle-line-init() {
+#    zle autosuggest-start
+#}
+#
+#zle -N zle-line-init
 
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
 # zsh-autosuggestions is designed to be unobtrusive)
