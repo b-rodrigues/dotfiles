@@ -259,8 +259,10 @@ you should place your code here."
   (setq TeX-view-program-list
          '(("PDF Viewer" "okular %o")))
    (global-linum-mode)
-   (set-fill-column 99)
-   (auto-fill-mode t)
+   (setq-default fill-column 99)
+   (setq-default auto-fill-mode t)
+   (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
+   (add-hook 'text-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
    )
 
 ;; Do not write anything past this comment. This is where Emacs will
