@@ -15,8 +15,8 @@ values."
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
-   ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers
+   ;; of a list then all discovered layers will be ins<<<<<<< Updated upstreamtalled.
+   dotspacemacs-configuratio<<<<<<< Updated upstreamn-layers
    '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -26,6 +26,7 @@ values."
      ;; auto-completion
      ;; better-defaults
      (keyboard-layout :variables kl-layout 'bepo)
+     mu4e
      emacs-lisp
      pandoc
      git
@@ -46,7 +47,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '()
-   ;; A list of packages and/or extensions that will not be install and loaded.
+   ;<<<<<<< Updated upstream; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -265,6 +266,9 @@ you should place your code here."
           (newline-mark 10 [9226 10]) ; 10 LINE FEED
           (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
           ))
+  (setq-default dotspacemacs-configuration-layers
+                '((mu4e :variables
+                        mu4e-installation-path "/usr/share/emacs/site-lisp")))
   (setq TeX-view-program-selection
          '((output-pdf "PDF Viewer")))
   (setq TeX-view-program-list
@@ -294,6 +298,7 @@ you should place your code here."
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
+ '(delete-selection-mode nil)
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
  '(highlight-symbol-colors
    (--map
