@@ -38,6 +38,7 @@ values."
      ;; ----------------------------------------------------------------
      helm
      html
+     themes-megapack
      csv
      (keyboard-layout :variables kl-layout 'bepo)
      emacs-lisp
@@ -46,7 +47,7 @@ values."
      yaml
      polymode
      pandoc
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -135,22 +136,14 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         junio
-                         graham
-                         spacemacs-light
-                         solarized-light
-                         solarized-dark
-                         leuven
-                         monokai
-                         zenburn)
+   dotspacemacs-themes '(sanityinc-tomorrow-bright)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Roboto Mono"
                                :size 13
-                               :weight normal
+                               :weight light
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
@@ -275,7 +268,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -306,8 +299,8 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
-   ))
+   dotspacemacs-whitespace-cleanup 'all
+   )
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
@@ -316,7 +309,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  ))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -325,7 +318,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; make whitespace-mode use just basic coloring
+  (global-company-mode t)
+  (global-hl-line-mode -1) ; Disable current line highlight
+  (setq-default fill-column 99)
+  (setq-default auto-fill-mode t)
   ;; ESS shortcuts
   (spacemacs/set-leader-keys "mdt" 'ess-r-devtools-test-package)
   (spacemacs/set-leader-keys "mdb" 'ess-r-devtools-build-package)
@@ -335,22 +331,21 @@ you should place your code here."
   ;; Move lines around
   (spacemacs/set-leader-keys "MS" 'move-text-line-up)
   (spacemacs/set-leader-keys "MT" 'move-text-line-down)
-
-  (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
-  (setq whitespace-display-mappings
+  (setq-default whitespace-mode t)
+  (setq-default whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
+  (setq-default whitespace-display-mappings
         ;; all numbers are Unicode codepoint in decimal. try (insert-char 182 ) to see it
         '(
           (space-mark 32 [183] [46]) ; 32 SPACE, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
           (newline-mark 10 [9226 10]) ; 10 LINE FEED
           (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
           ))
-  (setq TeX-view-program-selection
+  (setq-default TeX-view-program-selection
          '((output-pdf "PDF Viewer")))
-  (setq TeX-view-program-list
-         '(("PDF Viewer" "okular %o")))
-   (global-linum-mode)
-   (setq-default fill-column 99)
-   (setq-default auto-fill-mode t)
+  (setq-default TeX-view-program-list
+        '(("PDF Viewer" "okular %o")))
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 2)
    ;; (setq org-default-notes-file (concat org-directory "/agenda/notes.org"))
    (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
    (add-hook 'text-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
@@ -366,7 +361,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (auctex-latexmk auctex yaml-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode polymode pandoc-mode ox-pandoc ht less-css-mode helm-css-scss haml-mode flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode emmet-mode csv-mode auto-dictionary ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (zonokai-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-statistics company-auctex company auto-yasnippet yasnippet ac-ispell auto-complete auctex-latexmk auctex yaml-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode polymode pandoc-mode ox-pandoc ht less-css-mode helm-css-scss haml-mode flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode emmet-mode csv-mode auto-dictionary ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
