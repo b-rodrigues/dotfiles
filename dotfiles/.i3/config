@@ -166,11 +166,11 @@ bindsym $mod+o mode "resize"
 # Take screenshot
 mode "screenshot" {
         # These bindings trigger as soon as you enter the screenshot mode
-    
+
         bindsym c exec spectacle --current
         bindsym f exec spectacle --fullscreen
         bindsym r exec spectacle --region
-    
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -202,7 +202,7 @@ mode "$radio" {
     bindsym c exec mpv mms://195.23.102.196/comercialcbr96
     bindsym b exec mpv http://www.tv-radio.com/station/france_bleu_alsace_mp3/france_bleu_alsace_mp3-32k.m3u
     bindsym k exec killall mpv
-    
+
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -231,7 +231,7 @@ assign [class = "Choqok"] 2
 
 # Workspace 3
 assign [class = "Kate"] 3
-assign [class = "Kile"] 3
+assign [class = "Emacs"] 3
 
 # Workspace 4
 assign [class = "RStudio"] 4
