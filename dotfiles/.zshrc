@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/bro/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 unset PYTHONPATH
 
@@ -59,7 +59,7 @@ plugins=(git,zsh-autosuggestions)
 
 # User configuration
 
-export PATH="/home/bro/miniconda3/bin:/home/bro/.linuxbrew/bin:/home/bro/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/home/bro/.local/bin:/home/bro/Documents/Matlab/bin/"
+export PATH="~/miniconda3/bin:~/.linuxbrew/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:~/.local/bin:~/Documents/Matlab/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -94,6 +94,7 @@ alias fipjazz="mpv http://webradiofip2.scdn.arkena.com/webradiofip2.mp3"
 alias fipgroove="mpv http://webradiofip3.scdn.arkena.com/webradiofip3.mp3"
 alias fipmonde="mpv http://webradiofip4.scdn.arkena.com/webradiofip4.mp3"
 alias fipnouveau="mpv http://webradiofip5.scdn.arkena.com/webradiofip5.mp3"
+alias fipelectro="mpv http://chai5she.cdn.dvmr.fr/fip-webradio8.mp3"
 alias fip45ans="mpv http://webradiofip6.scdn.arkena.com/webradiofip6.mp3"
 alias fgclub="mpv http://radiofg.impek.com/fg6.m3u"
 alias france24="mpv http://f24hls-i.akamaihd.net/hls/live/221192/F24_FR_LO_HLS/master_900.m3u8?Wse=4577tr"
@@ -113,7 +114,7 @@ alias xbox2player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 3 --si
 alias meteostras="curl wttr.in/strasbourg"
 
 # Setup zsh-autosuggestions
-#source /home/bro/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #
 ## Enable autosuggestions automatically
 #zle-line-init() {
