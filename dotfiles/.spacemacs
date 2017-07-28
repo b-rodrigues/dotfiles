@@ -337,7 +337,7 @@ you should place"
 
 
   (global-company-mode t)
-  (global-hl-line-mode -1) ; Disable current line highlight
+  (global-hl-line-mode 1) ; Disable current line highlight
   (setq-default fill-column 99)
   (setq-default auto-fill-mode t)
   ;; ESS shortcuts
