@@ -10,12 +10,12 @@ output:
 ```{r setup, include=FALSE}
 library("readr")
 library("ggplot2")
-poids <- read_csv("~/Downloads/poids.csv")
+poids <- read_csv("~/Documents/config_files/weight/poids.csv")
 
 ```
 
 ```{r, echo=FALSE}
-# poids$bmi <- poids$Poids/(1.75**2)
+poids$bmi <- poids$Poids/(1.75**2)
 # par(mar=c(5,4,4,5)+.1)
 # plot(poids$Date, poids$Poids, type="l", col="blue", lwd=2, ylim = c(70, 86), ylab = "Weight", xlab = "Date")
 # par(new=TRUE)
