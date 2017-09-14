@@ -222,15 +222,15 @@ bindsym $mod+m exec mpy
 # Workspace 1
 assign [class = "Firefox"] 1
 assign [class = "qutebrowser"] 1
-assign [class = "Google-chrome"] 1
+assign [class = "brave"] 1
 
 # Workspace 2
 assign [class = "Kontact"] 2
-assign [class = "Kopete"] 2
+assign [class = "Telegram"] 2
 assign [class = "Choqok"] 2
 
 # Workspace 3
-assign [class = "Kate"] 3
+assign [class = "Kwrite"] 3
 assign [class = "Emacs"] 3
 
 # Workspace 4
