@@ -90,11 +90,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias fiprock="mpv http://webradiofip1.scdn.arkena.com/webradiofip1.mp3"
 alias virgin="http://vr-live-mp3-128.scdn.arkena.com/virginradio.mp3"
-alias fipjazz="mpv http://webradiofip2.scdn.arkena.com/webradiofip2.mp3"
-alias fipgroove="mpv http://webradiofip3.scdn.arkena.com/webradiofip3.mp3"
+alias fipjazz="mpv http://direct.fipradio.fr/live/fip-webradio2.mp3"
+alias fipgroove="mpv http://direct.fipradio.fr/live/fip-webradio3.mp3"
 alias fipmonde="mpv http://webradiofip4.scdn.arkena.com/webradiofip4.mp3"
 alias fipnouveau="mpv http://webradiofip5.scdn.arkena.com/webradiofip5.mp3"
-alias fipelectro="mpv http://chai5she.cdn.dvmr.fr/fip-webradio8.mp3"
+alias fipelectro="mpv http://direct.fipradio.fr/live/fip-webradio8.mp3"
 alias fip45ans="mpv http://webradiofip6.scdn.arkena.com/webradiofip6.mp3"
 alias nightplaza="mpv https://plaza.one/mp3"
 alias fgclub="mpv http://radiofg.impek.com/fg6.m3u"
@@ -112,7 +112,7 @@ alias rtl2="mpv http://streaming.radio.rtl2.fr/rtl2-1-48-192"
 alias nrj="http://adwzg3.tdf-cdn.com/8470/nrj_165631.mp3"
 alias xbox1player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 2 --silent"
 alias xbox2player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 3 --silent"
-alias meteostras="curl wttr.in/strasbourg"
+alias meteolux="curl wttr.in/luxembourg"
 
 # Setup zsh-autosuggestions
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
