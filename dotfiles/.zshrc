@@ -88,6 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias climacs="emacs --no-window-system"
 alias fiprock="mpv http://webradiofip1.scdn.arkena.com/webradiofip1.mp3"
 alias virgin="http://vr-live-mp3-128.scdn.arkena.com/virginradio.mp3"
 alias fipjazz="mpv http://direct.fipradio.fr/live/fip-webradio2.mp3"
