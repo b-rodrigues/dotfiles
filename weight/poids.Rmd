@@ -26,7 +26,7 @@ poids$bmi <- poids$Poids/(1.75**2)
 # grid()
 
 ggplot(poids, aes(Date, Poids)) +
-  geom_point() +
+  geom_point() + theme_minimal() +
   geom_smooth()
 
 
@@ -42,7 +42,7 @@ poidsLast <- poids[(n - n_measur):n,]
 #plot(poidsLast$Date, poidsLast$Poids, type="l", col="blue", lwd=2, ylim = c(min(poidsLast$Poids), #max(poidsLast$Poids)), ylab = "Weight", xlab = "Date")
 
 ggplot(poidsLast, aes(Date, Poids)) +
-  geom_point() +
+  geom_point() + theme_minimal() +
   geom_smooth()
 
 ```
