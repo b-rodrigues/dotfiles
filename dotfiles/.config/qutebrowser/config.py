@@ -11,15 +11,19 @@ c.tabs.position = "left"
 c.url.start_pages = ["https://searx.me", "https://mail.protonmail.com/login"]
 #c.url.searchengines = {'se':"https://searx.me/?q={}"}
 c.hints.chars = "ctsrn"
+c.downloads.position = "bottom"
+c.editor.command = ["emacs {}"]
+c.tabs.background = True
 
 config.bind('J', 'set-cmd-text :open {url}')
 config.bind('j', 'set-cmd-text -s :open -t ')
-
 
 config.bind('v', 'tab-prev')
 config.bind('l', 'tab-next')
 config.bind('gq', 'back')
 config.bind('gh', 'forward')
+
+config.bind('b', 'buffer')
 
 config.bind('c', 'scroll left')
 config.bind('t', 'scroll down')
