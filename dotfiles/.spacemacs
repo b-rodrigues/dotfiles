@@ -49,7 +49,6 @@ values."
      (latex :variables latex-enable-auto-fill t)
      ess
      yaml
-     polymode
      pandoc
      auto-completion
      ;; better-defaults
@@ -70,7 +69,8 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(eww)
+   dotspacemacs-additional-packages '(eww
+                                      polymode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -324,18 +324,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place"
-;; Email account
-(setq mu4e-sent-folder "/sent"
-      ;; mu4e-sent-messages-behavior 'delete ;; Unsure how this should be configured
-      mu4e-drafts-folder "/drafts"
-      user-mail-address "rodbruno@openmailbox.org"
-      smtpmail-default-smtp-server "smtp.openmailbox.org"
-      smtpmail-smtp-service 465
-      mu4e-sent-messages-behavior 'sent
-      smtpmail-queue-dir "/queue"
-      user-mail-address "rodbruno@openmailbox.org"
-      user-full-name "Bruno Rodrigues")
-
+;;; R modes
+  (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
 
   (global-company-mode t)
   (global-hl-line-mode 1) ; Disable current line highlight
