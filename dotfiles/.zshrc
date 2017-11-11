@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/bro/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 unset PYTHONPATH
 
@@ -59,7 +59,7 @@ plugins=(git,zsh-autosuggestions)
 
 # User configuration
 
-export PATH="/home/bro/miniconda3/bin:/home/bro/.linuxbrew/bin:/home/bro/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/home/bro/.local/bin:/home/bro/Documents/Matlab/bin/"
+export PATH="~/miniconda3/bin:~/.linuxbrew/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:~/.local/bin:~/Documents/Matlab/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -88,18 +88,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias climacs="emacs --no-window-system"
 alias fiprock="mpv http://webradiofip1.scdn.arkena.com/webradiofip1.mp3"
 alias virgin="http://vr-live-mp3-128.scdn.arkena.com/virginradio.mp3"
-alias fipjazz="mpv http://webradiofip2.scdn.arkena.com/webradiofip2.mp3"
-alias fipgroove="mpv http://webradiofip3.scdn.arkena.com/webradiofip3.mp3"
+alias fipjazz="mpv http://direct.fipradio.fr/live/fip-webradio2.mp3"
+alias fipgroove="mpv http://direct.fipradio.fr/live/fip-webradio3.mp3"
 alias fipmonde="mpv http://webradiofip4.scdn.arkena.com/webradiofip4.mp3"
 alias fipnouveau="mpv http://webradiofip5.scdn.arkena.com/webradiofip5.mp3"
+alias fipelectro="mpv http://direct.fipradio.fr/live/fip-webradio8.mp3"
 alias fip45ans="mpv http://webradiofip6.scdn.arkena.com/webradiofip6.mp3"
+alias nightplaza="mpv https://plaza.one/mp3"
 alias fgclub="mpv http://radiofg.impek.com/fg6.m3u"
 alias france24="mpv http://f24hls-i.akamaihd.net/hls/live/221192/F24_FR_LO_HLS/master_900.m3u8?Wse=4577tr"
 alias fgu="mpv http://www.radiofg.com/streams/fgu.pls"
 alias chilled="mpv rtmp://odw-e-04.sharp-stream.com/mosod/mp3:CHILLED.mp3"
-alias fipstras="mpv http://audio.scdn.arkena.com/11345/fipstrasbourg-midfi128.mp3"
+alias fipstras="mpv http://chai5she.cdn.dvmr.fr/fipstrasbourg-midfi.mp3"
 alias fip="mpv http://gisv3.tv-radio.com/station/fip_mp3/fip_mp3-128k.m3u"
 alias nova="mpv http://broadcast.infomaniak.net/radionova-high.mp3"
 alias update="sudo zypper ref && sudo zypper up"
@@ -110,10 +113,10 @@ alias rtl2="mpv http://streaming.radio.rtl2.fr/rtl2-1-48-192"
 alias nrj="http://adwzg3.tdf-cdn.com/8470/nrj_165631.mp3"
 alias xbox1player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 2 --silent"
 alias xbox2player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 3 --silent"
-alias meteostras="curl wttr.in/strasbourg"
+alias meteolux="curl wttr.in/luxembourg"
 
 # Setup zsh-autosuggestions
-#source /home/bro/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #
 ## Enable autosuggestions automatically
 #zle-line-init() {
