@@ -211,7 +211,7 @@ bindsym $mod+F11 mode "$radio"
 
 
 # Application shortcuts
-bindsym $mod+f exec dolphin
+bindsym $mod+f exec krusader
 bindsym Control+space exec rofi -show run
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
