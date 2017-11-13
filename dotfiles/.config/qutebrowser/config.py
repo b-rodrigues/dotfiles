@@ -12,8 +12,8 @@ c.url.start_pages = ["https://searx.me", "https://mail.protonmail.com/login"]
 #c.url.searchengines = {'se':"https://searx.me/?q={}"}
 c.hints.chars = "ctsrn"
 c.downloads.position = "bottom"
-c.editor.command = ["emacs {}"]
 c.tabs.background = True
+c.editor.command = ["urxvt-vim", "{}"]
 
 config.bind('J', 'set-cmd-text :open {url}')
 config.bind('j', 'set-cmd-text -s :open -t ')
@@ -29,7 +29,7 @@ config.bind('c', 'scroll left')
 config.bind('t', 'scroll down')
 config.bind('s', 'scroll up')
 config.bind('T', 'scroll-page 0 0.5')
-config.bind('S', 'scroll-page 0. 0.5')
+config.bind('S', 'scroll-page 0 -0.5')
 config.bind('r', 'scroll right')
 
 config.bind('C', 'enter-mode caret')

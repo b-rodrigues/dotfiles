@@ -31,8 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     python
-     markdown
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -45,17 +43,17 @@ values."
      themes-megapack
      csv
      (keyboard-layout :variables kl-layout 'bepo)
-     emacs-lisp
      (latex :variables latex-enable-auto-fill t)
      ess
      yaml
      pandoc
+     python
+     markdown
      auto-completion
      ;; better-defaults
      emacs-lisp
      git
      pdf-tools
-     mu4e
      ;; markdown
      ;; org
      (shell :variables
@@ -142,13 +140,14 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(farmhouse-dark)
+   dotspacemacs-themes '(toxi
+                         farmhouse-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Monoid"
-                               :size 12
+                               :size 13
                                :weight light
                                :width normal
                                :powerline-scale 1.1)

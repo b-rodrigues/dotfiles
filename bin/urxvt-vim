@@ -1,0 +1,2 @@
+#!/bin/bash
+urxvt -e nvim -f $1

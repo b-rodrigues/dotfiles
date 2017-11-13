@@ -29,17 +29,17 @@ set spell spelllang=en_us
 
 " Python-mode options
 "let g:pymode_indent = 1
-let g:pymode_options_max_line_length = 99
-let g:pymode_folding = 0
+"let g:pymode_options_max_line_length = 99
+"let g:pymode_folding = 0
 "let g:pymode_rope = 1
-let g:pymode_lint_config = '$HOME/pylint.rc'
-let g:pymode_syntax_all = 1
-let g:pymode_options_colorcolumn = 1
+"let g:pymode_lint_config = '$HOME/pylint.rc'
+"let g:pymode_syntax_all = 1
+"let g:pymode_options_colorcolumn = 1
 
 " Uncomment next line to open NERDTree automatically
 "autocmd vimenter * NERDTree
 
-execute pathogen#infect()
+"execute pathogen#infect()
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -215,18 +215,18 @@ source ~/.config/nvim/bepo
 
 "------------------------------------------------------------
 "let R_in_buffer = 0
-let R_vsplit = 1
-let Rout_more_colors = 1
-set shiftwidth=4
-set tabstop=8
+"let R_vsplit = 1
+"let Rout_more_colors = 1
+"set shiftwidth=4
+"set tabstop=8
 " start R with F2 key
-map <F2> <Plug>RStart 
-imap <F2> <Plug>RStart
-vmap <F2> <Plug>RStart
+"map <F2> <Plug>RStart 
+"imap <F2> <Plug>RStart
+"vmap <F2> <Plug>RStart
 " send selection to R with space bar
-vmap <Space> <Plug>RDSendSelection 
+"vmap <Space> <Plug>RDSendSelection 
 " send line to R with space bar
-nmap <Space> <Plug>RDSendLine
+"nmap <Space> <Plug>RDSendLine
 
 " To highlight lines over 99 characters long
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
@@ -235,19 +235,19 @@ match OverLength /\%>99v.\+/
 
 
 " Map some useful fuzzy finder keys
-map <F9> :FufFile<CR>
-imap <F9> :FufFile<CR>
-vmap <F9> :FufFile<CR>
+"map <F9> :FufFile<CR>
+"imap <F9> :FufFile<CR>
+"vmap <F9> :FufFile<CR>
 
-map <F10> :FufBuffer<CR>
-imap <F10> :FufBuffer<CR>
-vmap <F10> :FufBuffer<CR>
+"map <F10> :FufBuffer<CR>
+"imap <F10> :FufBuffer<CR>
+"vmap <F10> :FufBuffer<CR>
 
 " Disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+"noremap <Up> <Nop>
+"noremap <Down> <Nop>
+"noremap <Left> <Nop>
+"noremap <Right> <Nop>
 
 colorscheme molokai
 highlight Comment cterm=bold
