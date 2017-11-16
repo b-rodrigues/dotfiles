@@ -13,7 +13,7 @@ c.url.searchengines = {'DEFAULT':"https://searx.me/?q={}"}
 c.hints.chars = "ctsrn"
 c.downloads.position = "bottom"
 c.tabs.background = True
-c.editor.command = ["urxvt-vim", "{}"]
+c.editor.command = ["urxvt", "-e", "nvim", "{}"]
 
 config.bind('J', 'set-cmd-text :open {url}')
 config.bind('j', 'set-cmd-text -s :open -t ')
