@@ -9,7 +9,7 @@
 
 c.tabs.position = "left"
 c.url.start_pages = ["https://searx.me", "https://mail.protonmail.com/login"]
-#c.url.searchengines = {'se':"https://searx.me/?q={}"}
+c.url.searchengines = {'DEFAULT':"https://searx.me/?q={}"}
 c.hints.chars = "ctsrn"
 c.downloads.position = "bottom"
 c.tabs.background = True
