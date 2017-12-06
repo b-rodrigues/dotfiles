@@ -340,6 +340,16 @@ you should place"
   (spacemacs/set-leader-keys "mdd" 'ess-r-devtools-document-package)
   (spacemacs/set-leader-keys "mdl" 'ess-r-devtools-load-package)
   (spacemacs/set-leader-keys "mdc" 'ess-r-devtools-check-package)
+  (spacemacs/set-leader-keys-for-major-mode 'ess-mode "oo" (lambda () (interactive) (insert " %>% ")))
+  (add-hook 'ess-mode-hook
+            (lambda ()
+              (ess-toggle-underscore nil)))
+  (define-key evil-normal-state-map (kbd "SPC MM")
+            (lambda ()
+              (interactive)
+              (insert " %>% ")
+              (evil-insert-state)
+              ))
   ;; Move lines around
   (spacemacs/set-leader-keys "MS" 'move-text-line-up)
   (spacemacs/set-leader-keys "MT" 'move-text-line-down)
