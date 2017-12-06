@@ -344,7 +344,7 @@ you should place"
   (add-hook 'ess-mode-hook
             (lambda ()
               (ess-toggle-underscore nil)))
-  (define-key evil-normal-state-map (kbd "SPC MM")
+  (define-key evil-normal-state-map (kbd "SPC mm")
             (lambda ()
               (interactive)
               (insert " %>% ")
