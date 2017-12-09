@@ -29,7 +29,10 @@ c.colors.statusbar.insert.bg = "#859900"
 c.colors.completion.fg = "#93a1a1"
 c.colors.statusbar.normal.fg = "#eee8d5"
 c.colors.statusbar.normal.bg = "#002b36"
-
+c.colors.downloads.start.bg = "#002b36"
+c.colors.downloads.stop.bg = "#93a1a1"
+c.colors.downloads.start.fg = "#93a1a1"
+c.colors.downloads.stop.fg = "#002b36"
 
 config.bind('J', 'set-cmd-text :open {url}')
 config.bind('j', 'set-cmd-text -s :open -t ')
