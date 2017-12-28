@@ -178,6 +178,25 @@ mode "screenshot" {
 
 bindsym $mod+F10 mode "screenshot"
 
+mode "$mousemouve" {
+    # Move mouse
+    bindsym s exec xdotool mousemove_relative -- 0 -15
+    bindsym t exec xdotool mousemove_relative 0 15
+    bindsym c exec xdotool mousemove_relative -- -15 0
+    bindsym r exec xdotool mousemove_relative 15 0
+    # Click down
+    bindsym v exec xdotool click 1
+    bindsym l exec xdotool click 3
+    # Unclutter
+    bindsym u exec unclutter --idle 1
+    bindsym k exec killall unclutter
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+F11 mode "$mousemouve"
+
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec i3lock --color=000000 --no-unlock-indicator
@@ -192,23 +211,6 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+F12 mode "$mode_system"
-
-set $radio Fip (f) Strasbourg, Rtl2 (r), Nova (n), Antena 3 (a), Comercial (c), France Bleu (b) Alsace, Kill (k) radio stream
-mode "$radio" {
-    bindsym f exec mpv http://mp3lg4.tdf-cdn.com/6836/fipstrasbourg-hd.mp3
-    bindsym r exec mpv http://streaming.radio.rtl2.fr/rtl2-1-44-128
-    bindsym n exec mpv http://broadcast.infomaniak.net/radionova-high.mp3
-    bindsym a exec mpv mms://rdp.oninet.pt/antena3
-    bindsym c exec mpv mms://195.23.102.196/comercialcbr96
-    bindsym b exec mpv http://www.tv-radio.com/station/france_bleu_alsace_mp3/france_bleu_alsace_mp3-32k.m3u
-    bindsym k exec killall mpv
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+F11 mode "$radio"
-
 
 # Application shortcuts
 bindsym $mod+f exec krusader
