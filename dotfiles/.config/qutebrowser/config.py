@@ -6,6 +6,8 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
+# Comment this line when using proprietary Nvidia drivers
+c.qt.force_software_rendering = True
 
 c.tabs.position = "left"
 c.url.start_pages = ["https://searx.me", "https://mail.protonmail.com/login"]
@@ -52,6 +54,7 @@ config.bind('S', 'scroll-page 0 -0.5')
 config.bind('r', 'scroll right')
 
 config.bind('C', 'enter-mode caret')
+config.bind('V', 'enter-mode passthrough')
 
 config.bind('<alt-">', 'tab-focus 1')
 config.bind('<alt-«>', 'tab-focus 2')
