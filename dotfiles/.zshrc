@@ -90,6 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias climacs="emacs --no-window-system"
 alias fiprock="mpv http://webradiofip1.scdn.arkena.com/webradiofip1.mp3"
+alias aroto="mpv 'http://streaming.radionomy.com/ArotoInstrumentalRadio?lang=en-US%2Cen'"
 alias virgin="http://vr-live-mp3-128.scdn.arkena.com/virginradio.mp3"
 alias fipjazz="mpv http://direct.fipradio.fr/live/fip-webradio2.mp3"
 alias fipgroove="mpv http://direct.fipradio.fr/live/fip-webradio3.mp3"
