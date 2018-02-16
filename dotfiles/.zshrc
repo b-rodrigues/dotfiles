@@ -59,7 +59,7 @@ plugins=(git,zsh-autosuggestions)
 
 # User configuration
 
-export PATH="~/.linuxbrew/bin:/home/cbrunos/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:~/.local/bin:$PATH"
+export PATH="~/.linuxbrew/bin:/home/cbrunos/bin:/home/cbrunos/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:~/.local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
