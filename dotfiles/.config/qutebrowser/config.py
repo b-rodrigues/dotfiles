@@ -17,13 +17,15 @@ c.hints.chars = "ctsrn"
 c.downloads.position = "bottom"
 c.tabs.background = True
 c.editor.command = ["urxvt", "-e", "nvim", "{}"]
+# Solarize websites
+c.content.user_stylesheets = '~/Documents/config_files/solarized-all-sites-dark.css'
 # Solarize qutebrowser
 c.colors.tabs.odd.fg = "#93a1a1"
 c.colors.tabs.odd.bg = "#002b36"
 c.colors.tabs.even.fg = "#002b36"
 c.colors.tabs.even.bg = "#93a1a1"
 c.colors.webpage.bg = "#586e75"
-c.colors.tabs.selected.odd.bg = "#d33682" 
+c.colors.tabs.selected.odd.bg = "#d33682"
 c.colors.tabs.selected.even.bg = "#d33682"
 c.colors.tabs.bar.bg = "#002b36"
 c.colors.completion.odd.bg =  "#002b36"
