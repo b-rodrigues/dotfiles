@@ -344,7 +344,7 @@ you should place"
   (spacemacs/set-leader-keys "mdd" 'ess-r-devtools-document-package)
   (spacemacs/set-leader-keys "mdl" 'ess-r-devtools-load-package)
   (spacemacs/set-leader-keys "mdc" 'ess-r-devtools-check-package)
-  (spacemacs/set-leader-keys-for-major-mode 'ess-mode "oo" (lambda () (interactive) (insert " %>% ")))
+  (spacemacs/set-leader-keys "mdp" 'ess-r-package-mode)
   (add-hook 'ess-mode-hook
             (lambda ()
               (ess-toggle-underscore nil)))
