@@ -66,13 +66,12 @@ Last bmi:
 tail(poids$bmi , n = 1)
 ```
 
-Max weight ever `r max(poids$Poids)`kg (BMI: `r round(max(poids$bmi))`) on the 
-`r poids$Date[which(poids$Poids == max(poids$Poids))]` and min weight ever 
-`r min(poids$Poids)`kg (BMI: `r round(min(poids$bmi))`) on the 
+Max weight ever `r max(poids$Poids)`kg (BMI: `r round(max(poids$bmi))`) on the
+`r poids$Date[which(poids$Poids == max(poids$Poids))]` and min weight ever
+`r min(poids$Poids)`kg (BMI: `r round(min(poids$bmi))`) on the
 `r poids$Date[which(poids$Poids == min(poids$Poids))]`.
 
-Overall loss (max weight - last weight): 
+Overall loss (max weight - last weight):
 `r max(poids$Poids) - tail(poids$Poids, n = 1)`kg.
 
 Five last variations: `r tail(poids$Poids) - tail(poids$Poids[-length(poids$Poids)])`. (Total: `r sum(tail(poids$Poids) - tail(poids$Poids[-length(poids$Poids)]))`kg )
-
