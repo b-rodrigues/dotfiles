@@ -9,7 +9,7 @@
 # Comment this line when using proprietary Nvidia drivers
 #c.qt.force_software_rendering = True
 
-c.content.pdfjs = True
+c.content.pdfjs = False
 c.tabs.position = "left"
 c.url.start_pages = ["https://searx.me", "https://mail.protonmail.com/login"]
 c.url.searchengines = {'DEFAULT':"https://searx.me/?q={}"}
