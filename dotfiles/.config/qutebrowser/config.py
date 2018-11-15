@@ -6,69 +6,174 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
-# Comment this line when using proprietary Nvidia drivers
-#c.qt.force_software_rendering = True
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'file://*')
 
-c.content.pdfjs = False
-c.tabs.position = "left"
-c.url.start_pages = ["https://searx.me", "https://mail.protonmail.com/login"]
-c.url.searchengines = {'DEFAULT':"https://searx.me/?q={}"}
-c.hints.chars = "ctsrn"
-c.downloads.position = "bottom"
-c.tabs.background = True
-c.editor.command = ["urxvt", "-e", "nvim", "{}"]
-# Solarize websites
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'chrome://*/*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'qute://*/*')
+
+# Allow pdf.js to view PDF files in the browser. Note that the files can
+# still be downloaded by clicking the download button in the pdf.js
+# viewer.
+# Type: Bool
+c.content.pdfjs = True
+
+# List of user stylesheet filenames to use.
+# Type: List of File, or File
 c.content.user_stylesheets = '~/Documents/config_files/solarized-all-sites-dark.css'
-# Solarize qutebrowser
-c.colors.tabs.odd.fg = "#93a1a1"
-c.colors.tabs.odd.bg = "#002b36"
-c.colors.tabs.even.fg = "#002b36"
-c.colors.tabs.even.bg = "#93a1a1"
-c.colors.webpage.bg = "#586e75"
-c.colors.tabs.selected.odd.bg = "#d33682"
-c.colors.tabs.selected.even.bg = "#d33682"
-c.colors.tabs.bar.bg = "#002b36"
-c.colors.completion.odd.bg =  "#002b36"
-c.colors.completion.even.bg =  "#002b36"
-c.colors.statusbar.insert.bg = "#859900"
-c.colors.completion.fg = "#93a1a1"
-c.colors.statusbar.normal.fg = "#eee8d5"
-c.colors.statusbar.normal.bg = "#002b36"
-c.colors.downloads.start.bg = "#002b36"
-c.colors.downloads.stop.bg = "#93a1a1"
-c.colors.downloads.start.fg = "#93a1a1"
-c.colors.downloads.stop.fg = "#002b36"
 
-config.bind('J', 'set-cmd-text :open {url}')
-config.bind('j', 'set-cmd-text -s :open -t ')
+# Where to show the downloaded files.
+# Type: VerticalPosition
+# Valid values:
+#   - top
+#   - bottom
+c.downloads.position = 'bottom'
 
-config.bind('v', 'tab-prev')
-config.bind('l', 'tab-next')
-config.bind('gq', 'back')
-config.bind('gh', 'forward')
+# Editor (and arguments) to use for the `open-editor` command. The
+# following placeholders are defined: * `{file}`: Filename of the file
+# to be edited. * `{line}`: Line in which the caret is found in the
+# text. * `{column}`: Column in which the caret is found in the text. *
+# `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
+# Same as `{column}`, but starting from index 0.
+# Type: ShellCommand
+c.editor.command = ['urxvt', '-e', 'nvim', '{}']
 
-config.bind('b', 'buffer')
+# Characters used for hint strings.
+# Type: UniqueCharString
+c.hints.chars = 'ctsrn'
 
-config.bind('c', 'scroll left')
-config.bind('t', 'scroll down')
-config.bind('s', 'scroll up')
-config.bind('T', 'scroll-page 0 0.5')
-config.bind('S', 'scroll-page 0 -0.5')
-config.bind('r', 'scroll right')
+# Open new tabs (middleclick/ctrl+click) in the background.
+# Type: Bool
+c.tabs.background = True
 
+# Position of the tab bar.
+# Type: Position
+# Valid values:
+#   - top
+#   - bottom
+#   - left
+#   - right
+c.tabs.position = 'left'
+
+# Search engines which can be used via the address bar. Maps a search
+# engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
+# placeholder. The placeholder will be replaced by the search term, use
+# `{{` and `}}` for literal `{`/`}` signs. The search engine named
+# `DEFAULT` is used when `url.auto_search` is turned on and something
+# else than a URL was entered to be opened. Other search engines can be
+# used by prepending the search engine name to the search term, e.g.
+# `:open google qutebrowser`.
+# Type: Dict
+c.url.searchengines = {'DEFAULT': 'https://searx.me/?q={}'}
+
+# Page(s) to open at the start.
+# Type: List of FuzzyUrl, or FuzzyUrl
+c.url.start_pages = ['https://searx.me']
+
+# Text color of the completion widget. May be a single color to use for
+# all columns or a list of three colors, one for each column.
+# Type: List of QtColor, or QtColor
+c.colors.completion.fg = '#93a1a1'
+
+# Background color of the completion widget for odd rows.
+# Type: QssColor
+c.colors.completion.odd.bg = '#002b36'
+
+# Background color of the completion widget for even rows.
+# Type: QssColor
+c.colors.completion.even.bg = '#002b36'
+
+# Color gradient start for download text.
+# Type: QtColor
+c.colors.downloads.start.fg = '#93a1a1'
+
+# Color gradient start for download backgrounds.
+# Type: QtColor
+c.colors.downloads.start.bg = '#002b36'
+
+# Color gradient end for download text.
+# Type: QtColor
+c.colors.downloads.stop.fg = '#002b36'
+
+# Color gradient stop for download backgrounds.
+# Type: QtColor
+c.colors.downloads.stop.bg = '#93a1a1'
+
+# Foreground color of the statusbar.
+# Type: QssColor
+c.colors.statusbar.normal.fg = '#eee8d5'
+
+# Background color of the statusbar.
+# Type: QssColor
+c.colors.statusbar.normal.bg = '#002b36'
+
+# Background color of the statusbar in insert mode.
+# Type: QssColor
+c.colors.statusbar.insert.bg = '#859900'
+
+# Background color of the tab bar.
+# Type: QtColor
+c.colors.tabs.bar.bg = '#002b36'
+
+# Foreground color of unselected odd tabs.
+# Type: QtColor
+c.colors.tabs.odd.fg = '#93a1a1'
+
+# Background color of unselected odd tabs.
+# Type: QtColor
+c.colors.tabs.odd.bg = '#002b36'
+
+# Foreground color of unselected even tabs.
+# Type: QtColor
+c.colors.tabs.even.fg = '#002b36'
+
+# Background color of unselected even tabs.
+# Type: QtColor
+c.colors.tabs.even.bg = '#93a1a1'
+
+# Background color of selected odd tabs.
+# Type: QtColor
+c.colors.tabs.selected.odd.bg = '#d33682'
+
+# Background color of selected even tabs.
+# Type: QtColor
+c.colors.tabs.selected.even.bg = '#d33682'
+
+# Background color for webpages if unset (or empty to use the theme's
+# color).
+# Type: QtColor
+c.colors.webpage.bg = '#586e75'
+
+# Bindings for normal mode
+config.bind('<Alt+">', 'tab-focus 1')
+config.bind('<Alt+(>', 'tab-focus 4')
+config.bind('<Alt+)>', 'tab-focus 5')
+config.bind('<Alt++>', 'tab-focus 7')
+config.bind('<Alt+->', 'tab-focus 8')
+config.bind('<Alt+/>', 'tab-focus 9')
+config.bind('<Alt+@>', 'tab-focus 6')
+config.bind('<Alt+«>', 'tab-focus 2')
+config.bind('<Alt+»>', 'tab-focus 3')
+config.bind('<Ctrl+v>', 'spawn mpv {url}')
 config.bind('C', 'enter-mode caret')
-config.bind('V', 'enter-mode passthrough')
-
-config.bind('<alt-">', 'tab-focus 1')
-config.bind('<alt-«>', 'tab-focus 2')
-config.bind('<alt-»>', 'tab-focus 3')
-config.bind('<alt-(>', 'tab-focus 4')
-config.bind('<alt-)>', 'tab-focus 5')
-config.bind('<alt-@>', 'tab-focus 6')
-config.bind('<alt-+>', 'tab-focus 7')
-config.bind('<alt-->', 'tab-focus 8')
-config.bind('<alt-/>', 'tab-focus 9')
-
-config.bind('<Ctrl-v>', 'spawn mpv {url}')
-
+config.bind('J', 'set-cmd-text :open {url}')
 config.bind('M', 'quickmark-save')
+config.bind('S', 'scroll-page 0 -0.5')
+config.bind('T', 'scroll-page 0 0.5')
+config.bind('V', 'enter-mode passthrough')
+config.bind('b', 'buffer')
+config.bind('c', 'scroll left')
+config.bind('gh', 'forward')
+config.bind('gq', 'back')
+config.bind('j', 'set-cmd-text -s :open -t ')
+config.bind('l', 'tab-next')
+config.bind('r', 'scroll right')
+config.bind('s', 'scroll up')
+config.bind('t', 'scroll down')
+config.bind('v', 'tab-prev')
