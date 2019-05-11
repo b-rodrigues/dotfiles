@@ -59,10 +59,12 @@ plugins=(git,zsh-autosuggestions)
 
 # User configuration
 
-export PATH="~/.linuxbrew/bin:/home/cbrunos/bin:/home/cbrunos/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:~/.local/bin:$PATH"
+export PATH="/home/cbrunos/.npm-global/bin:~/.linuxbrew/bin:/home/cbrunos/bin:/home/cbrunos/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:~/.local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+export TESSDATA_PREFIX=/usr/share/tesseract-ocr/4/
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
