@@ -118,6 +118,7 @@ alias xbox1player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 2 --si
 alias xbox2player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 3 --silent"
 alias meteolux="curl wttr.in/luxembourg"
 
+
 function pretty_csv {
     column -t -s, -n "$@" | less -F -S -X -K
 }
@@ -154,3 +155,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+#conda activate r_env

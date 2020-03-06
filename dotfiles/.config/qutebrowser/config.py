@@ -70,11 +70,11 @@ c.tabs.position = 'left'
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://searx.me/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://searx.be/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = ['https://searx.me']
+c.url.start_pages = ['https://searx.be']
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
@@ -153,7 +153,7 @@ c.colors.webpage.bg = '#586e75'
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
 # Type: Font
-c.fonts.monospace = 'Ubuntu Sans'
+#c.fonts.monospace = 'Ubuntu Sans'
 
 # Font family for standard fonts.
 # Type: FontFamily
