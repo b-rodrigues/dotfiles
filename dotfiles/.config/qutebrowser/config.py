@@ -42,7 +42,7 @@ c.downloads.position = 'bottom'
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['urxvt', '-e', 'nvim', '{}']
+c.editor.command = ['urxvt-256color', '-e', 'nvim', '{}']
 
 # Characters used for hint strings.
 # Type: UniqueCharString
