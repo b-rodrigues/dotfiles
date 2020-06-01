@@ -257,6 +257,8 @@ exec sleep 35 && ~/.dropbox-dist/dropboxd
 exec sleep 50 && redshift -l 48.5:7.7
 exec sleep 30 && yakuake
 exec sleep 25 && kmix
+exec --no-startup-id ~/Documents/i3-alternating_layout/alternating_layouts.py
+
 
 # Always floating windows
 for_window [class="Yakuake"] floating enable

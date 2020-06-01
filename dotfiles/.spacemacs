@@ -37,11 +37,14 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
+     org
+     ranger
      auto-completion
      ;; better-defaults
      emacs-lisp
      ess
      themes-megapack
+     version-control
      shell
      markdown
      spell-checking
