@@ -215,7 +215,7 @@ bindsym $mod+F12 mode "$mode_system"
 # Application shortcuts
 bindsym $mod+f exec krusader
 bindsym Control+space exec rofi -show run
-bindsym Control+u exec rofi -show window
+bindsym $mod+Shift+l exec rofi -show window
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
 bindsym $mod+m exec mpy
@@ -225,7 +225,8 @@ bindsym $mod+m exec mpy
 # Workspace 1
 assign [class = "Firefox"] 1
 assign [class = "qutebrowser"] 1
-assign [class = "brave"] 1
+assign [class = "brave-browser"] 1
+assign [class = "Brave-browser"] 1
 
 # Workspace 2
 assign [class = "Kontact"] 2
@@ -252,10 +253,12 @@ exec ~/bin/startrofi.sh &
 exec dunst
 exec unclutter -idle 5 &
 exec nitrogen --restore &
+exec syncthing
 exec sleep 27 && parcellite
 exec sleep 35 && ~/.dropbox-dist/dropboxd
 exec sleep 50 && redshift -l 48.5:7.7
-exec sleep 30 && yakuake
+exec sleep 10 && sync_sixtb_to_media.sh
+exec sleep 10 && save_elden.sh
 exec sleep 25 && kmix
 exec --no-startup-id ~/Documents/i3-alternating_layout/alternating_layouts.py
 
@@ -270,21 +273,21 @@ for_window [class="R_x11"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        #output VGA1
-        status_command conky -c ~/.conkyrc
-        position top
-        tray_output primary
-        colors {
-            background #1c1c1c
-            statusline #73ba25
+#bar {
+#        #output VGA1
+#        status_command conky -c ~/.conkyrc
+#        position top
+#        tray_output primary
+#        colors {
+#            background #1c1c1c
+#            statusline #73ba25
             #class            #border #background #text
-            focused_workspace #A43A2D #191919     #FFFFFF
-            active_workspace  #9fbc00 #101010     #FFFFFF
-            inactive_workspace #444444 #191919    #FFFFFF
-            urgent_workspace   #383a3b #C96761    #FFFFFF
-            }
-}
+#            focused_workspace #A43A2D #191919     #FFFFFF
+#            active_workspace  #9fbc00 #101010     #FFFFFF
+#            inactive_workspace #444444 #191919    #FFFFFF
+#            urgent_workspace   #383a3b #C96761    #FFFFFF
+#            }
+#}
 
 # Window decorations
 #class                          border   backgr.  text

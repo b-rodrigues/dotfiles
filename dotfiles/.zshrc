@@ -117,11 +117,7 @@ alias nrj="http://adwzg3.tdf-cdn.com/8470/nrj_165631.mp3"
 alias xbox1player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 2 --silent"
 alias xbox2player="sudo xboxdrv --detach-kernel-driver --mimic-xpad --led 3 --silent"
 alias meteolux="curl wttr.in/luxembourg"
-
-
-function pretty_csv {
-    column -t -s, -n "$@" | less -F -S -X -K
-}
+alias salut="mpv http://www.salutcestcool.com/radio/playlist.m3u"
 
 # Setup zsh-autosuggestions
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -138,21 +134,21 @@ function pretty_csv {
 bindkey '^T' autosuggest-toggle
 . /usr/share/autojump/autojump.zsh
 
-bindkey -v
+# Created by `userpath` on 2020-06-14 16:03:41
+export PATH="$PATH:/home/cbrunos/.local/bin"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/cbrunos/media/laragreen/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/cbrunos/six_to/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/cbrunos/media/laragreen/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/cbrunos/media/laragreen/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/cbrunos/six_to/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/cbrunos/six_to/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/cbrunos/media/laragreen/miniconda3/bin:$PATH"
+        export PATH="/home/cbrunos/six_to/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-#conda activate r_env
