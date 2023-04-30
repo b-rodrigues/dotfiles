@@ -9,7 +9,7 @@ This function should only modify configuration layer settings."
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
-   dotspacemacs-distribution 'spacemacs-base
+   dotspacemacs-distribution 'spacemacs
 
    ;; Lazy installation of layers (i.e. layers are installed only when a file
    ;; with a supported type is opened). Possible values are `all', `unused'
@@ -32,14 +32,14 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
-     ;; better-defaults
+     auto-completion
+     better-defaults
      emacs-lisp
      ;; git
      helm
@@ -47,16 +47,16 @@ This function should only modify configuration layer settings."
      ;; markdown
      multiple-cursors
      csv
+     ranger
      (keyboard-layout :variables kl-layout 'bepo)
-     (latex :variables latex-enable-auto-fill t)
+     ;;(latex :variables latex-enable-auto-fill t)
      ess
-
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
+     spell-checking
+     syntax-checking
      ;; version-control
      treemacs)
 
@@ -72,7 +72,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(polymode
                                       poly-R
                                       poly-noweb
-                                      poly-markdown)
+                                      poly-markdown
+                                      doom-themes)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -238,9 +239,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-dark
-                         spacemacs-dark
-                         spacemacs-light)
+   dotspacemacs-themes '(doom-solarized-dark
+                         doom-solarized-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -259,7 +259,7 @@ It should only modify the values of Spacemacs settings."
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Fira Code"
-                               :size 10.0
+                               :size 16.0
                                :weight normal
                                :width normal)
 
@@ -417,7 +417,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
@@ -568,14 +568,16 @@ before packages are loaded."
   (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
   (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
   (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.Qmd" . poly-markdown+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.qmd" . poly-markdown+r-mode))
 
   ;; (require 'poly-R)
   ;; (require 'poly-markdown)
   ;; (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
 
-  (global-company-mode t)
-  (global-hl-line-mode 1) ; Enable/Disable current line highlight
-  (setq-default fill-column 99)
+  ;;(global-company-mode t)
+  ;;(global-hl-line-mode 1) ; Enable/Disable current line highlight
+  (setq-default fill-column 80)
   (setq-default auto-fill-mode t)
   ;; ESS shortcuts
   (spacemacs/set-leader-keys "mdt" 'ess-r-devtools-test-package)
@@ -587,35 +589,54 @@ before packages are loaded."
   (spacemacs/set-leader-keys "mdc" 'ess-r-devtools-check-package)
   (spacemacs/set-leader-keys "mdp" 'ess-r-package-mode)
   (add-hook 'ess-mode-hook
-            (lambda ()
-              (ess-toggle-underscore nil)))
+    (lambda ()
+      (ess-toggle-underscore nil))
+    )
+  (define-key evil-normal-state-map (kbd "SPC mb")
+    (lambda ()
+      (interactive)
+      (insert " |> ")
+      (evil-insert-state)
+      ))
+  (define-key evil-normal-state-map (kbd "SPC mp")
+    (lambda ()
+      (interactive)
+      (insert " httpgd::hgd_browse() ")
+      (evil-insert-state)
+      ))
   (define-key evil-normal-state-map (kbd "SPC mm")
     (lambda ()
       (interactive)
       (insert " %>% ")
       (evil-insert-state)
       ))
+  (define-key evil-normal-state-map (kbd "SPC mt")
+    (lambda ()
+      (interactive)
+      (insert " %>=% ")
+      (evil-insert-state)
+      ))
   ;; Move lines around
-  (spacemacs/set-leader-keys "MS" 'move-text-line-up)
-  (spacemacs/set-leader-keys "MT" 'move-text-line-down)
+  ;;(spacemacs/set-leader-keys "MS" 'move-text-line-up)
+  ;;(spacemacs/set-leader-keys "MT" 'move-text-line-down)
   (setq-default whitespace-mode t)
-  (setq-default whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
-  (setq-default whitespace-display-mappings
-                ;; all numbers are Unicode codepoint in decimal. try (insert-char 182 ) to see it
-                '(
-                  (space-mark 32 [183] [46]) ; 32 SPACE, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
-                  (newline-mark 10 [9226 10]) ; 10 LINE FEED
-                  (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
-                  ))
-  (setq-default TeX-view-program-selection
-                '((output-pdf "PDF Viewer")))
-  (setq-default TeX-view-program-list
-                '(("PDF Viewer" "okular %o")))
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 2)
-  (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
-  (add-hook 'text-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
-  (add-hook 'markdown-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
+  ;;(setq-default whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
+  ;;(setq-default whitespace-display-mappings
+  ;;              ;; all numbers are Unicode codepoint in decimal. try (insert-char 182 ) to see it
+  ;;              '(
+  ;;                (space-mark 32 [183] [46]) ; 32 SPACE, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
+  ;;                (newline-mark 10 [9226 10]) ; 10 LINE FEED
+  ;;                (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
+  ;;                ))
+  ;;(setq-default TeX-view-program-selection
+  ;;              '((output-pdf "PDF Viewer")))
+  ;;(setq-default TeX-view-program-list
+  ;;              '(("PDF Viewer" "okular %o")))
+  ;;(setq-default indent-tabs-mode nil)
+  ;;(setq-default tab-width 2)
+  ;;(add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
+  ;;(add-hook 'text-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
+  ;;(add-hook 'markdown-mode-hook 'spacemacs/toggle-fill-column-indicator-on)
 )
 
 
@@ -632,11 +653,32 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
- '(warning-suppress-types '((comp) (comp))))
+ '(package-selected-packages
+   '(web-mode web-beautify tagedit slim-mode scss-mode sass-mode pug-mode prettier-js impatient-mode htmlize simple-httpd helm-css-scss haml-mode emmet-mode counsel-css counsel swiper ivy company-web web-completion-data add-node-modules-path yasnippet-snippets xterm-color ws-butler writeroom-mode winum which-key vterm volatile-highlights vi-tilde-fringe uuidgen use-package unfill undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org terminal-here symon symbol-overlay string-inflection string-edit spaceline-all-the-icons solarized-theme shell-pop restart-emacs request rainbow-delimiters quickrun popwin poly-R pcre2el password-generator paradox overseer org-superstar open-junk-file nameless mwim multi-term multi-line macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu ess-R-data-view eshell-z eshell-prompt-extras esh-help emr elisp-slime-nav elisp-def editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word csv-mode column-enforce-mode clean-aindent-mode centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
+ '(warning-suppress-log-types
+   '((use-package)
+     (use-package)
+     (use-package)
+     (use-package)
+     (use-package)
+     (use-package)
+     (use-package)
+     (comp)
+     (comp)))
+ '(warning-suppress-types
+   '((use-package)
+     (use-package)
+     (use-package)
+     (use-package)
+     (use-package)
+     (use-package)
+     (use-package)
+     (comp)
+     (comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((((class color) (min-colors 89)) (:foreground "#839496" :background "#002b36")))))
+ '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
 )

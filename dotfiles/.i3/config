@@ -246,6 +246,7 @@ assign [class = "Gimp"] 5
 # Workspace 6
 assign [class = "Wine"] 6
 assign [class = "Steam"] 6
+assign [class = "steamwebhelper"] 6
 
 # Startup applications
 exec ~/bin/setbepo.sh
